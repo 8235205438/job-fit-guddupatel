@@ -13,7 +13,7 @@ class ResumeMatcher:
         self.model = SentenceTransformer(transformer_model)
         
         # Try to load existing model - CRITICAL for Cloud Deployment
-        model_path = "model.pkl"
+        model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
         if os.path.exists(model_path):
             self.saved_categories = self.load_model(model_path)
             if self.saved_categories:
